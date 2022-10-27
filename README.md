@@ -14,7 +14,18 @@ npm install
 
 ## Usage
 
-It uses the input.txt file to get the instructions, following the pattern of the problem description.
+It uses the input.txt file to get the instructions, following the pattern of the problem description, which is:
+
+```
+{integer} {integer} // plateau size
+{integer} {integer} {N,S,E,W} // rover initial position
+{M,L,R}{M,L,R}...{M,L,R} //rover instructions
+{integer} {integer} {N,S,E,W} // rover initial position
+{M,L,R}{M,L,R}...{M,L,R} //rover instructions
+...
+{integer} {integer} {N,S,E,W} // rover initial position
+{M,L,R}{M,L,R}...{M,L,R} //rover instructions
+```
 
 It generates an output.txt file with the results
 
