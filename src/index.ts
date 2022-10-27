@@ -1,8 +1,6 @@
 import 'reflect-metadata';
-import { EvaluateInputUseCase } from './domain/evaluate-input';
+import { EvaluateInputUseCase, ReadInputUseCase, WriteOutputUseCase } from './domain';
 import Container from 'typedi';
-import { ReadInputUseCase } from 'domain/read-input';
-import { WriteOutputUseCase } from 'domain/write-output';
 
 const readInputUseCase = Container.get(ReadInputUseCase);
 const input = readInputUseCase.exec('input.txt');
