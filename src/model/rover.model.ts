@@ -3,6 +3,8 @@ import { PositionModel } from "./position.model";
 
 export interface RoverModel extends PositionModel {
   direction: Direction;
+  rotate: (direction: RotateDirection) => void;
+  move: () => void;
 }
 
 export type RotateDirection = InstructionType.RotateLeft | InstructionType.RotateRight;
