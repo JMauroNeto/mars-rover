@@ -47,4 +47,32 @@ describe('Entity - Plateau', () => {
     expect(() => plateau = new Plateau(x, y)).to.throw(Error, 'Plateau inputs must be integers');
     expect(plateau).to.be.eq(undefined);
   })
+
+  it('should create plateau if x parameter is 0', () => {
+    x = 0;
+    y = faker.datatype.number();
+
+    plateau = new Plateau(x, y);
+
+    expect(plateau.x).to.be.eq(x);
+    expect(plateau.y).to.be.eq(y);
+  })
+
+  it('should create plateau if y parameter is 0', () => {
+    x = faker.datatype.number();
+    y = 0;
+
+    plateau = new Plateau(x, y);
+
+    expect(plateau.x).to.be.eq(x);
+    expect(plateau.y).to.be.eq(y);
+  })
+
+  it('should give error if both x and y parameters are 0', () => {
+    x = 0;
+    y = 0;
+
+    expect(() => plateau = new Plateau(x, y)).to.throw(Error, 'Almost one side of the plateau must be greater than 0');
+    expect(plateau).to.be.eq(undefined);
+  })
 })
