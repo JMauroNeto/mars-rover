@@ -1,4 +1,3 @@
-export interface PlateauModel {
-  x: number;
-  y: number;
-}
+import { PositionModel } from "./position.model";
+
+export type PlateauModel = PositionModel;

@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker';
 import { expect } from 'chai';
-import { Direction } from '../../../model/rover.model';
+import { Direction, InstructionType } from '../../../model';
 import { Rover } from '../rover';
 
 describe('Entity - Rover', () => {
@@ -59,5 +59,61 @@ describe('Entity - Rover', () => {
 
     expect(() => rover = new Rover(x, y, direction)).to.throw(Error, `Rover direction must be 'N', 'S', 'E' or 'W'`)
     expect(rover).to.be.eq(undefined);
+  })
+
+  it('should rotate right without moving', () => {
+    rover = new Rover(x, y, Direction.North);
+
+    rover.rotate(InstructionType.RotateRight);
+
+    expect(rover.direction).to.be.eq(Direction.East)
+    expect(rover.x).to.be.eq(x);
+    expect(rover.y).to.be.eq(y);
+    
+    rover.rotate(InstructionType.RotateRight);
+
+    expect(rover.direction).to.be.eq(Direction.South)
+    expect(rover.x).to.be.eq(x);
+    expect(rover.y).to.be.eq(y);
+
+    rover.rotate(InstructionType.RotateRight);
+
+    expect(rover.direction).to.be.eq(Direction.West)
+    expect(rover.x).to.be.eq(x);
+    expect(rover.y).to.be.eq(y);
+
+    rover.rotate(InstructionType.RotateRight);
+
+    expect(rover.direction).to.be.eq(Direction.North)
+    expect(rover.x).to.be.eq(x);
+    expect(rover.y).to.be.eq(y);
+  })
+
+  it('should rotate left without moving', () => {
+    rover = new Rover(x, y, Direction.North);
+
+    rover.rotate(InstructionType.RotateLeft);
+
+    expect(rover.direction).to.be.eq(Direction.West)
+    expect(rover.x).to.be.eq(x);
+    expect(rover.y).to.be.eq(y);
+    
+    rover.rotate(InstructionType.RotateLeft);
+
+    expect(rover.direction).to.be.eq(Direction.South)
+    expect(rover.x).to.be.eq(x);
+    expect(rover.y).to.be.eq(y);
+
+    rover.rotate(InstructionType.RotateLeft);
+
+    expect(rover.direction).to.be.eq(Direction.East)
+    expect(rover.x).to.be.eq(x);
+    expect(rover.y).to.be.eq(y);
+
+    rover.rotate(InstructionType.RotateLeft);
+
+    expect(rover.direction).to.be.eq(Direction.North)
+    expect(rover.x).to.be.eq(x);
+    expect(rover.y).to.be.eq(y);
   })
 })

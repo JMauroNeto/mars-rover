@@ -1,8 +1,11 @@
-export interface RoverModel {
+import { InstructionType } from "./instruction.model";
+import { PositionModel } from "./position.model";
+
+export interface RoverModel extends PositionModel {
   direction: Direction;
-  x: number;
-  y: number;
 }
+
+export type RotateDirection = InstructionType.RotateLeft | InstructionType.RotateRight;
 
 export enum Direction {
   North = 'N',
