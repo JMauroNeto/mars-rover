@@ -10,6 +10,8 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "esModuleInterop": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
   },
-  "exclude": ["node_modules"]
+  "exclude": ["*.test.ts", "node_modules", "test"]
 }
